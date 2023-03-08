@@ -8,6 +8,13 @@
             background-color: #e3f2fd;
         }
 
+        h1 {
+            font-weight: 600;
+            font-size: 3em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         .card {
             padding: 10px;
             margin: 25px;
@@ -22,8 +29,9 @@
         }
         .card-title {
             font-weight: 600;
-            font-size: 3em;
-            padding: 0 0 10px 0;
+            font-size: 2em;
+            
+
          
         }
 
@@ -35,9 +43,11 @@
 
         .card-text {
             display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
             color: blueviolet;
-            /* justify-content: center; */
-            /* align-items: center; */
+            
         }
 
 
@@ -45,26 +55,26 @@
 
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
         }
         
 
         img.card-img  {
-            padding: 0%;
-            width: 100px;
-            height: 100px;
-           
-           
+            display: block; 
+            margin: 0 auto;
+        
         }
     </style>
 </head>
 
 <body>
+    <h1>Rick Riordan</h1>
     <template id="card-template">
         <div class="card">
             <div class="card-body">
                 <div class="card-title"></div>
                 <div class="card-text"></div>
-                <img class="card-img"></img>
+                <img width="150" class="card-img"></img>
             </div>
         </div>
     </template>
@@ -95,40 +105,88 @@
     //         addCard('card2', 'texxxt');
 
     //     // }
-                //EX 3
-    const artist = {
-        name: "Van Gogh",
-        portfolio: [
-            {
-                title: "portrait",
+      //-------------------------------------------//          
+    // const artist = {
+    //     name: "Van Gogh",
+    //     portfolio: [
+    //         {
+    //             title: "portrait",
 
-                url: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image"
-            },
+    //             url: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image"
+    //         },
 
-            {
-                title: "sky",
+    //         {
+    //             title: "sky",
 
-                url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg"
-            },
+    //             url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg"
+    //         },
 
-        ],
-    }
-    let counter = 0;
-    function addCard() {
+    //     ],
+        
+    // }
+    // let counter = 0;
+    // function addCard() {
+
+
+    //     const template = document.getElementById("card-template").content.cloneNode(true);
+
+    //     template.querySelector('.card-title').innerText = artist.name;
+    //     template.querySelector('.card-text').innerText = artist.portfolio[counter].title;
+    //     template.querySelector('.card-img').src = artist.portfolio[counter].url;
+    //     document.querySelector('#card-list').appendChild(template);
+    //     counter ++;
+
+    // }    
+    // addCard()
+    // addCard()
+//-----------------artists i choose is an author--------------------------------//
+const authors = [
+                {name: 'Rick Rioden',
+                book: 'The Lightning Thief',
+                url: 'https://cdn2.penguin.com.au/covers/original/9780141346809.jpg'
+                },
+                {name: 'Rick Rioden',
+                book: 'House of Hades',
+                url: 'https://uploads-ssl.webflow.com/5f31c39d0a0cff4644701050/5f3e617cc39d4c7d5e67b79e_TheHouseOfHadesRickRiordan.jpg'
+                },
+                {name: 'Rick Rioden',
+                book: 'The Sun and the Star',
+                url: 'https://rickriordan.com/content/uploads/2022/09/SUN-AND-THE-STAR-finalcover.jpg'
+                },
+                {name: 'Rick Rioden',
+                book: 'Daughter of the Deep',
+                url: 'https://kbimages1-a.akamaihd.net/7ac4721c-081b-471a-9810-c66998204d0f/1200/1200/False/daughter-of-the-deep-1.jpg'
+                }, 
+                {name: 'Rick Rioden',
+                book: 'Norse Mythology',
+                url: 'https://kbimages1-a.akamaihd.net/74a58714-3b07-4a97-b042-758d713a3507/353/569/90/False/norse-mythology-6.jpg'
+                },
+            ]
+
+
+
+
+
+
+
+function addAuthorCard(name, book, url) {
 
 
         const template = document.getElementById("card-template").content.cloneNode(true);
 
-        template.querySelector('.card-title').innerText = artist.name;
-        template.querySelector('.card-text').innerText = artist.portfolio[counter].title;
-        template.querySelector('.card-img').innerText = artist.portfolio[counter].url;
+        template.querySelector('.card-title').innerText = book;
+        // template.querySelector('.card-text').innerText = book;
+        template.querySelector('.card-img').src = url;
         document.querySelector('#card-list').appendChild(template);
-        counter ++;
+       
+      
+   }
+   for (let author of authors) 
+                {
+                    addAuthorCard(author.name, author.book, author.url)
 
-    }    
-    addCard()
-    addCard()
-
+                }
+               
 </script>
 
 </html>
