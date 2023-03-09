@@ -1,9 +1,9 @@
 function calculator() {
     //defining and connecting the buttons
     let screen = document.querySelector('.screen');
-    let buttons = document.querySelectorAll('.btns');
-    let clear = document.querySelector('.btns-clear');
-    let equals = document.querySelector('.btns-equals');
+    let buttons = document.querySelectorAll('.btns', '.cal-btns');
+    let clear = document.querySelector('.clear-btns');
+    let equals = document.querySelector('.equals-btns');
 
     //making a foreach function to be able to display each buttons
     buttons.forEach(function(button) {
@@ -26,7 +26,7 @@ function calculator() {
             }
         //adding addEventListener() to 'clear' and function so the value on the screen is empty
         clear.addEventListener('click', function(i) {
-            screen.value = 'null';
+            screen.value = '';
     })
     })
 }

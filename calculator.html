@@ -9,12 +9,15 @@
 <body>
 
     <section class="calculator">
-        <form>
+        <!-- <form>
             <input type="text" class="screen">
-        </form>
+        </form> -->
         <div class="buttons-wrapper"> 
+            <form>
+                <input type="text" class="screen">
+            </form>
             <!-- calcu buttons -->              <!-- data-num holding values -->
-            <button type="button" class="btns cal-btns" >*</button>
+            <button type="button" class="btns cal-btns" data-num="*">*</button>
             <button type="button" class="btns cal-btns" data-num="/">/</button>
             <button type="button" class="btns cal-btns" data-num="-">-</button> 
             <button type="button" class="btns cal-btns" data-num="+">+</button> 
@@ -28,8 +31,8 @@
             <button type="button" class="btns num-btns" data-num="3">3</button>
             <button type="button" class="btns num-btns" data-num="2">2</button>
             <button type="button" class="btns num-btns" data-num="1">1</button>
-            <button type="button" class="num-btns" data-num="0">0</button>
-            <button type="button" class="num-btns" data-num=".">.</button>
+            <button type="button" class="btns num-btns" data-num="0">0</button>
+            <button type="button" class="btns num-btns" data-num=".">.</button>
 
             <button type="button" class="equals-btns">=</button>
             <button type="button" class="clear-btns">C</button>
