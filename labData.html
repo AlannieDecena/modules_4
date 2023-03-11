@@ -65,7 +65,10 @@
     </template>
 
     <div id="card-list"></div>
-    
+
+    <form onsubmit="submitform(event)">
+        <button>Refresh</button>
+    </form>
   </body>
   <script>
 let news=[
@@ -76,8 +79,9 @@ let news=[
 ];
 
 
-function addNewsCard(id, title, content) {
 
+function addNewsCard(id, title, content) {
+// document.querySelector('#card-list').innerHTML = '';
 
 const template = document.getElementById("card-news").content.cloneNode(true);
 
@@ -88,15 +92,24 @@ document.querySelector('#card-list').appendChild(template);
 
 
 }
+
 for (let cardNews of news) 
-        {
-            addNewsCard(cardNews.id, cardNews.title, cardNews.content)
+            {
+                addNewsCard(cardNews.id, cardNews.title, cardNews.content)
 
-        }
-addNewsCard(4, 'News4', "blu")
+            }
+
+setInterval(function printNext(){
+    let newNews = { id: 4, title: 'News4', content:"bla"}
+
+    
+    }, 2000)
+
+    
 
 
 
+// setInterval(addNewsCard, 5000);
        
   </script>
 </html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet">     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <Style>
+        *{
+            margin: 0%;
+            padding: 0%;
+            color: white;
+            box-sizing: border-box;
+            font-family: 'Common Pixel', sans-serif;
+        }
+        body {
+            background-color: black;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </Style>
+  </head>
+<body>
+    <template id="card-template">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title"></div>
+                <div class="card-text"></div>
+                <img width="350" class="card-img"></img>
+            </div>
+        </div>
+    </template>
+
+    <div id="card-list"></div>
+    
+</body>
+<script>
+
+    // const api_url = 'https://kitsu.io/api/edge/anime/';
+    // async function getinfo() {
+    //     const response = await fetch (api_url);
+    //     const info = await response.json();
+    //     const {synopsis} = info;
+
+    //     document.getElementById('#card-list').innerHTML = synopsis;
+    // }
+    // getinfo()
+
+fetch('https://kitsu.io/api/edge/anime/')
+.then((response)=> response.json()) //gets the entire HTTP response
+.then((json) => {
+    console.log(json.data);
+    getinfo(json)
+})
+.catch(error => console.error(`Caught error: ${error}`))
+
+function getinfo(json) {
+    console.log(json.data.map((anime) => (anime.attributes.synopsis)));
+    let temp = document.getElementById('card-template');
+    let clon = temp.content.cloneNode(true); 
+    json.data.map((anime) => (anime.attributes.synopsis),
+    clon.querySelector('.card-title').innerText = anime);  //inserts title from object array into 'card-title'
+    document.getElementById('.card-title').appendChild(clon);
+    
+}
+
+// const strings = ['vdsv', 'svsdvs', 'svsdvdv', 'davavav', 'avdv']
+
+// const randomPick = strings[(Math.floor(Math.random() * strings.length))];
+// console.log(randomPick)
+// document.getElementById('card-list').innerHTML = randomPick;
+
+
+</script>
+</html>
