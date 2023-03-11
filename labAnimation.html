@@ -7,37 +7,34 @@
     <title>Document</title>
 </head>
 <style>
-   body { 
-       animation: bg 10s infinite;
+  
+
+    body {
+        margin: 0%;
+        padding: 0%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+   .box { 
+        width: 100px;
+        height: 100px;
+        position: absolute;
+       animation: bg 5s infinite;
        animation-timing-function: ease-in-out;
        background-color: blue;
     }
    @keyframes bg {
-        100% {
-            background-color: blue;
-        }
-        70% {
-            background-color: rgb(83, 83, 254);
-        }
-        40% {
-            background-color: rgb(145, 145, 255);
-        }
-        90% {
-            background-color: rgb(226, 226, 255);
-        }
-        70% {
-            background-color: rgb(145, 145, 255);    
-        } 
-        80% {
-            background-color: rgb(83, 83, 254);
-        }
-        90% {
-            background-color: blue;
-        }
+    0%, 100% {
+        background-color: blue; bottom:0 ;
     }
+    50% {
+        background-color: yellow; bottom: 500px ;
+    }
+   
 
 
-    
+}
 
 </style>
 <body>
