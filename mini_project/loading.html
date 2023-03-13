@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="loading.css">
-    <link href="https://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">  
                 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </head>
@@ -56,10 +58,12 @@
         </div>
    <div class="popUpBox">
         <div class="contentwrapper">
-            <h1>Welcome</h1>
-            <p>You are now being transported. Are you ready?</p>
-            <button class="btn-yes" href="arrived.html">YES</button> <!-- The only option -->
-            <p class="tinyText">* There is no turning back</p> <!-- The fine print -->
+            <h1 class="head">Welcome!</h1>
+            <p class="text">You are being transported. Are you ready?</p>
+            <div class="btnContainer">
+            <a class="btn-yes" href="arrived.html">YES</a> 
+            <a class="btn-no" onclick="opps()">NO</a>
+            </div>
         </div>
    </div>
   
@@ -71,9 +75,13 @@
         setTimeout(function open(event){
             document.querySelector('.popUpBox').style.display = 'block'; //getting the css property
         },5000) //delaying popUp for 5s
+
     })
-
-
+    //for the onclick element on to change the text of the popUp box
+    function opps () {
+        document.querySelector('.head').innerHTML = 'Opps!'
+        document.querySelector('.text').innerHTML = 'Sorry you can not turn back'
+    }
 
   </script>
 </html>
