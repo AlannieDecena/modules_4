@@ -68,7 +68,7 @@
 </body>
 <script>
 
-fetch('https://kitsu.io/api/edge/anime/')
+fetch('http://localhost:3001/anime/anime')
 .then((response)=> response.json()) //gets the entire HTTP response and turning into json()
 .then((json) => {
     console.log(json.data);

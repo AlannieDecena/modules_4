@@ -13,7 +13,7 @@
             
         }
         .card-body {
-            display: block;
+           
             display: flex;
             flex-direction: column;
             
@@ -65,10 +65,10 @@
     </template>
 
     <div id="card-list"></div>
-
+<!-- 
     <form onsubmit="submitform(event)">
         <button>Refresh</button>
-    </form>
+    </form> -->
   </body>
   <script>
 let news=[
@@ -78,38 +78,42 @@ let news=[
 { id: 3, title: 'News3', content:"blu"}
 ];
 
+let currentNewsIndex = -1;
 
 
 function addNewsCard(id, title, content) {
 // document.querySelector('#card-list').innerHTML = '';
-
+// news.forEach(addnew => {
 const template = document.getElementById("card-news").content.cloneNode(true);
 
-template.querySelector('.card-title').innerText =title;
-template.querySelector('.card-text').innerText = id;
-template.querySelector('.card-content').innerText = content;
+template.querySelector('.card-title').innerText = news.title;
+template.querySelector('.card-text').innerText = news.id;
+template.querySelector('.card-content').innerText = news.content;
+
+// })
 document.querySelector('#card-list').appendChild(template);
 
-
 }
+// addNewsCard(4, 'new4', '424')
 
-for (let cardNews of news) {
-      addNewsCard(cardNews.id, cardNews.title, cardNews.content)
+(function newsIteration() {
+    currentNewsIndex = (currentNewsIndex + 1) % news.length;
+    for (let cardNews of news) {
+    
+    addNewsCard(cardNews.id, cardNews.title, cardNews.content);
 
-     }
+   }
+//    setTimeout(newsIteration, 5000);
+})();
 
 
-setInterval(function printNext(){
-    let newNews = { id: 4, title: 'News4', content:"bla"}
+
+
+// setInterval(function printNext(){
+//     let newNews = { id: 4, title: 'News4', content:"bla"}
 
     
-    }, 2000)
+//     }, 5000)
 
-    
-
-
-
-// setInterval(addNewsCard, 5000);
-       
   </script>
 </html>

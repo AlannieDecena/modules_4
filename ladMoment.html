@@ -3,7 +3,7 @@
 <head>
     <title>Moment DateTime Format</title>
     <!-- reference Moment.js library -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" type="text/javascript"></script>
 </head>
 <body>
     <h2>Moment Date</h2>
@@ -16,20 +16,76 @@
     <!-- container for JavaScript Date output -->
     <div id="displayJsDate"></div>
 
+    <h2>Birthday</h2>
+    <div id="displaybirthday"></div>
+    <h2>Birthday in years, months days</h2>
+    <p>years</p>
+    <div id="displaybirthdayYears"></div>
+    <p>months</p>
+    <div id="displaybirthdayMonths"></div>
+    <p>Days</p>
+    <div id="displaybirthdayDays"></div>
 
-   
+    <h2>the closest date to the current date</h2>
+    <div id="closesttocurrent"></div>
+
+    <h2>Before n After</h2>
+    <div id="beforeAndAfter"></div>
+
+    <h2>London time</h2>
+    <div id="londonTime"></div>
 </body>
 
 
 <script type="text/javascript">
     (function () {
-        // instantiate a moment object
+        // B-day date
         var NowMoment = moment();
+        let amntOfDays = moment("20230326").fromNow();
+        const bDay = document.getElementById('displaybirthday');
+        bDay.innerHTML = amntOfDays;
+        //display in yr, m, days
+    
+        let birthDate = moment('19980326');
+        let diff = NowMoment - birthDate
+        let duration = moment.duration(diff, 'milliseconds')
+        
+        let years = duration.asYears()
+        const bYears = document.getElementById('displaybirthdayYears');
+        bYears.innerHTML = years;
+
+        const months = duration.asMonths();
+        const bMonth = document.getElementById('displaybirthdayMonths');
+        bMonth.innerHTML = months;
+
+        let days = duration.asDays()
+        const bDays = document.getElementById('displaybirthdayDays');
+        bDays.innerHTML = days;
+        //closest to current
+        let yesterday = moment('20230313')
+        let today = moment('20230314')
+       let closestDate = today - yesterday
+       const closeDate = document.getElementById('closesttocurrent');
+       closeDate.innerHTML = closestDate;
+
+       //display befor after
+
+    //    const beforeAfter = document.getElementById('beforeAndAfter');
+    //    beforeAfter.innerHTML = ;
+        //london time
+        let nzTime = moment.locale();
+
+        let londonTime = m.utc()
+        const timeInLondon = document.getElementById('londonTime');
+        timeInLondon.innerHTML = londonTime;
+
+
+
         // instantiate a JavaScript Date object
         var NowDate = new Date();
         // display value of moment object in #displayMoment div
         var eDisplayMoment = document.getElementById('displayMoment');
-        eDisplayMoment.innerHTML = NowMoment;
+        eDisplayMoment.innerHTML = londonTime;
         // display value of Date object in #displayJsDate div
         var eDisplayDate = document.getElementById('displayJsDate');
         eDisplayDate.innerHTML = NowDate;
